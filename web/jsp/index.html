@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+    <title>智联招聘计算机职业统计分析</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/layouts/side-menu.css">
+    <script src="../js/jQuery.js"></script>
+    <script src="../js/main.js"></script>
+</head>
+<body>
+
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+    <script>
+        $(function () {
+            var jd = 0;
+            var change = function () {
+                jd = jd + "%";
+                $("div.progress-bar").css("width", jd);
+                var num = jd.indexOf("%");
+                jd = jd.substring(0, num);
+                jd = parseInt(jd) + 20;
+            }
+            setInterval(change, 1700);
+        });
+    </script>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0"
+             aria-valuemax="100" style="width: 0">
+        </div>
+    </div>
+    <frameset>
+        <div id="menu">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="#">功能</a>
+                <ul class="pure-menu-list">
+                    <li
+                            class="pure-menu-item"><a href="/Computer/FklAction" class="pure-menu-link" target="right">
+                        省份计算机职业响应度</a></li>
+                    <li
+                            class="pure-menu-item"><a href="/Computer/SalAction" class="pure-menu-link" target="right">
+                        省份计算机平均工资</a></li>
+                    <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                        <a href="/Computer/SunAction" class="pure-menu-link" target="right">城市及其职业名称</a>
+                    </li>
+                    <li
+                            class="pure-menu-item"><a href="/Computer/ReleAction" class="pure-menu-link"
+                                                      target="right">
+                        工资灰色关联分析</a></li>
+                    <li
+                            class="pure-menu-item"><a href="/Computer/jsp/map/index.jsp" class="pure-menu-link"
+                                                      target="right">
+                        计算机职业热门城市</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <div class="header">
+                <h1>智联招聘计算机相关工作分析</h1>
+                <h2>基于MapReduce处理</h2>
+            </div>
+
+            <div class="content">
+                <iframe name="right" style="width: 900px; height: 800px; margin-left: -100px">
+
+                </iframe>
+            </div>
+        </div>
+    </frameset>
+</div>
+
+
+<script src="../js/ui.js"></script>
+
+</body>
+</html>
